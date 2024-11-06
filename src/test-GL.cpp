@@ -41,7 +41,25 @@ int main()
     glViewport(0, 0, 800, 600);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
+    // vertex data
+    float vertices[] = {
+        -0.5, -0.5, 0.0, // bottom left
+        0.5, -0.5, 0.0, // bottom right
+        0.0, 0.5, 0.0   // top-center
+    };
 
+    // create a vertex buffer object
+    unsigned int VBO;
+    glGenBuffer(1, &VBO); // generate a unique ID for VBO
+
+    // bind the VBO
+    glBindBuffer(GL_ARRAY_BYFFER, VBO);
+
+    // copy vertex data into the BVO's memory on the GPU
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+
+    // set clear color
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     
     // render loop

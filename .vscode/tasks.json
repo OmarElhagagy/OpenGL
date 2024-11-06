@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "C:/ProgramData/mingw64/mingw64/bin/g++.exe",
+            "args": [
+                "-I${workspaceFolder}/include/GLEW/include",  // GLEW include path
+                "-I${workspaceFolder}/include",  // GLFW include path
+                "-L${workspaceFolder}/include/GLEW/lib/Release/x64",  // GLEW library path
+                "-L${workspaceFolder}/lib",  // GLFW library path
+                "${workspaceFolder}/src/test-GL.cpp",
+                "${workspaceFolder}/src/glad.c",  // Add glad.c here
+                "-lglfw3dll",  // Link GLFW
+                "-lglew32",  // Link GLEW
+                "-lopengl32",  // Link OpenGL
+                "-lgdi32",  // Link GDI32 for Windows graphics
+                "-o",
+                "${workspaceFolder}/cutable.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "compiler: C:/ProgramData/mingw64/mingw64/bin/g++.exe"
+        }
+    ]
+}

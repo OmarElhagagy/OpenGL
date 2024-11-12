@@ -6,16 +6,17 @@
             "type": "shell",
             "command": "C:/ProgramData/mingw64/mingw64/bin/g++.exe",
             "args": [
-                "-I${workspaceFolder}/include/GLEW/include",  // GLEW include path
-                "-I${workspaceFolder}/include",  // GLFW include path
-                "-L${workspaceFolder}/include/GLEW/lib/Release/x64",  // GLEW library path
-                "-L${workspaceFolder}/lib",  // GLFW library path
+                "-I${workspaceFolder}/include",        // Project include path
+                "-IC:/Users/Omar/Desktop/OpenGL/include/GL",     // GL headers within project include
+                "-L${workspaceFolder}/lib",            // Project lib path
                 "${workspaceFolder}/src/test-GL.cpp",
-                "${workspaceFolder}/src/glad.c",  // Add glad.c here
-                "-lglfw3dll",  // Link GLFW
-                "-lglew32",  // Link GLEW
-                "-lopengl32",  // Link OpenGL
-                "-lgdi32",  // Link GDI32 for Windows graphics
+                //"${workspaceFolder}/src/glad.c",       // glad source file
+                "-lglfw3",                             // GLFW
+                "-lglew32",                            // GLEW
+                "-lopengl32",                          // OpenGL
+                "-lglu32",                             // GLU library (for gluOrtho2D)
+                "-lgdi32",                             // GDI32
+                "-lfreeglut",                          // FreeGLUT
                 "-o",
                 "${workspaceFolder}/cutable.exe"
             ],
